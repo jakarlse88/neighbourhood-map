@@ -1,0 +1,31 @@
+.menu-drawer {
+    display: flex;
+    flex-direction: column;
+}
+
+#points-filter {
+    border-radius: 0;
+    border: 2px solid white;
+    width: 90%;
+    margin: 1em auto 0;
+}
+
+.menu-drawer {
+    height: 100%;
+    color: white;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    z-index: 12;
+}
+
+.menu-drawer ul {
+    list-style: none;
+    text-align: left;
+    margin: 1em;
+    padding: 0;
+}
+
+ul li {
+    padding: .4em 0;
+}

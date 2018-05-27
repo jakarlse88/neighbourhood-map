@@ -1,0 +1,29 @@
+.site-header {
+    width: 100%;
+    z-index: 10;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+}
+
+.site-header h1 {
+    padding: .2em 0;
+    margin: 0;
+}
+
+.menu-icon {
+    position: fixed;
+    left: 1em;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-icon:hover {
+    color: blue;
+}
