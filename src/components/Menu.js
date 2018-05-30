@@ -14,13 +14,15 @@ export default class Menu extends Component {
     }
     
     render() {
+        const { updateQuery } = this.props;
+
         return (
             <section className="menu-drawer">
                 <input 
                     id="points-filter" 
                     type="text" 
                     placeholder="Filter your search"
-                    onChange = { e => this.props.updateQuery(e.target.value) } 
+                    onChange = { e => updateQuery(e.target.value) } 
                     />
                 <ul>
                     {this.props.points.map(obj => (

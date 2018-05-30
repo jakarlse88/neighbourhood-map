@@ -6,7 +6,8 @@
     margin: 0;
     padding: 0;
     text-align: center;
-
+    position: fixed;
+    top: 0;
 }
 
 .site-header h1 {

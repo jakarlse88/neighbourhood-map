@@ -25,11 +25,11 @@ export const onMapClick = props => {
     }
 }
 
-export const onMarkerClick = (props, marker, e) => {
+export const onMarkerClick = (point, marker) => {
     return {
         type: MARKER_CLICK,
         payload: {
-            selectedPoint: props,
+            selectedPoint: point,
             activeMarker: marker,
             showingInfoWindow: true
         }

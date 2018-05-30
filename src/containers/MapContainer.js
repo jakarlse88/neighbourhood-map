@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 
 class MapContainer extends Component {
-    // handleMarkerClick = (props, marker, e) => {
-    //     this.props.onMarkerClick(props, marker);
-    // }
+    handleMarkerClick = (props, marker, e) => {
+        this.props.onMarkerClick(props, marker);
+    }
  
     handleMapClick = props => {
         this.props.onMapClick(props);
