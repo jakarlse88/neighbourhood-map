@@ -3,8 +3,14 @@ import '../styles/Header.css';
 import FontAwesome from 'react-fontawesome';
 
 export default class Header extends Component {
-    handleClick = e => {
-        this.props.toggleMenu();
+    
+    handleClick = props => {
+        if (this.props.isMenuShowing) {
+            this.props.hideMenu();
+        } else {
+            this.props.showMenu();
+        }
+        
     }
     
     render() {

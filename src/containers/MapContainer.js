@@ -2,33 +2,18 @@ import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 
 class MapContainer extends Component {
-    state = {
-        selectedPoint: {},
-        activeMarker: {},
-        showingInfoWindow: false,
-    }
-    
-    onMarkerClick = (props, marker, e) => {
-        this.setState({
-            selectedPoint: props,
-            activeMarker: marker,
-            showingInfoWindow: true
-        })
-    }
-
-    onMapClick = props => {
-        if (this.state.showingInfoWindow) {
-            this.setState({
-                activeMarker: null,
-                showingInfoWindow: false
-            })
-        }
+    // handleMarkerClick = (props, marker, e) => {
+    //     this.props.onMarkerClick(props, marker);
+    // }
+ 
+    handleMapClick = props => {
+        this.props.onMapClick(props);
     }
 
     render() {
         const style = {
-            width: '100%',
-            height: '100%'
+            width: '100vw',
+            height: '100vh',
         }
 
         const bounds = new this.props.google.maps.LatLngBounds();
@@ -42,23 +27,25 @@ class MapContainer extends Component {
                 google = { this.props.google }
                 initialCenter = {{ lat: 59.43403, lng: 10.65771 }}
                 bounds = { bounds }
-                zoom = { 12 }
-                onClick = { this.onMapClick }
-            >
+                zoom = { 13 }
+                onClick = { this.handleMapClick } 
+                maxZoom = { 13 } >
+                
                 {this.props.points.map(obj => (
                 <Marker
-                    onClick = { this.onMarkerClick }
+                    onClick = { (props, marker, e) => (
+                        this.props.onMarkerClick(props, marker, e)
+                    ) }
                     key = { obj.name }
                     title = { obj.name }
                     name = { obj.name }
-                    position = { obj.position }
-                />
-                ))}
+                    position = { obj.position } /> ))}
+                
                 <InfoWindow
-                    marker = { this.state.activeMarker }
-                    visible = { this.state.showingInfoWindow }
-                >
-                    <h2>{ this.state.selectedPoint.name }</h2>
+                    marker = { this.props.activeMarker }
+                    visible = { this.props.showingInfoWindow } >
+                    { this.props.selectedPoint &&
+                    <h2>{ this.props.selectedPoint.name }</h2> }
                 </InfoWindow>
             </Map>
         )

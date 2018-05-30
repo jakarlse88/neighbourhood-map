@@ -3,14 +3,16 @@ import Menu from '../components/Menu';
 
 export default class MenuContainer extends Component {
     render() {
-        return (
-            this.props.showMenu && (
+        if (this.props.showMenu) {
+            return (
                 <Menu
                     updateQuery = { this.props.updateQuery } 
                     points = { this.props.points }
-                    toggleMenu = { this.toggleMenu }
+                    onItemClick = { this.props.onItemClick}
                 />
             )
-        )
+        } else {
+            return null;
+        }
     } 
 }
