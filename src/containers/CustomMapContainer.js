@@ -10,29 +10,37 @@ class CustomMapContainer extends Component {
             height: '100vh'
         };
 
-        const { google,
-                points,
-                showingInfoWindow,
-                activeMarker,
-                selectedPoint,
-                loaded,
-                onMarkerClick,
-                onMapClick } = this.props;
+        const {
+            google,
+            points,
+            showingInfoWindow,
+            activeMarker,
+            selectedPoint,
+            loaded,
+            onMarkerClick,
+            onMapClick,
+            addMarker,
+            clearMarkers,
+            markers
+        } = this.props;
 
         if (!loaded) {
             return <div>Map loading...</div>
         }
 
         return (
-            <div className = "map-container" style = { style } >
-                <CustomMap 
-                    google = { google }
-                    points = { points }
-                    showingInfoWindow = { showingInfoWindow }
-                    activeMarker = { activeMarker }
-                    selectedPoint = { selectedPoint } 
-                    onMarkerClick = { onMarkerClick }
-                    onMapClick = { onMapClick } /> 
+            <div className="map-container" style={style} >
+                <CustomMap
+                    markers={markers}
+                    clearMarkers={clearMarkers}
+                    addMarker={addMarker}
+                    google={google}
+                    points={points}
+                    showingInfoWindow={showingInfoWindow}
+                    activeMarker={activeMarker}
+                    selectedPoint={selectedPoint}
+                    onMarkerClick={onMarkerClick}
+                    onMapClick={onMapClick} />
             </div>
         )
     }
@@ -40,4 +48,4 @@ class CustomMapContainer extends Component {
 
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyBQBmwAFnOLNr7Nz-bPMQBU-qUUn4xLfho'
-  })(CustomMapContainer)
+})(CustomMapContainer)

@@ -2,17 +2,37 @@ import React, { Component } from 'react';
 import Menu from '../components/Menu';
 
 export default class MenuContainer extends Component {
+    
+    handleChange = e => {
+		const {
+            filter,
+			points,
+            updateFilter
+        } = this.props;
+
+        updateFilter(e.target.value, points.all);
+    }
+    
     render() {
-        if (this.props.showMenu) {
+        const {
+            updateQuery,
+            points,
+            onItemClick,
+            showMenu,
+        } = this.props;
+
+        if (showMenu) {
             return (
                 <Menu
-                    updateQuery = { this.props.updateQuery } 
-                    points = { this.props.points }
-                    onItemClick = { this.props.onItemClick}
+                    handleChange={this.handleChange}
+                    updateQuery={updateQuery}
+                    points={points}
+                    onItemClick={onItemClick}
+                    filterPoints={this.filterPoints}
                 />
             )
         } else {
             return null;
         }
-    } 
+    }
 }

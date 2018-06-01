@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CustomMarker from './CustomMarker';
 
 export class CustomMap extends Component {
     handleMapClick = e => {
@@ -10,53 +11,110 @@ export class CustomMap extends Component {
     }
 
     componentDidMount = () => {
-        let infoWindow;
+        const {
+            google,
+            points,
+            showingInfoWindow,
+            activeMarker,
+            selectedPoint,
+            addMarker
+        } = this.props;
 
-        const { google, 
-                points, 
-                showingInfoWindow,
-                activeMarker, 
-                selectedPoint } = this.props;
-        
+        let markers = [];
+
         const map = new google.maps.Map(this.refs.map, {
             center: {
                 lat: 59.420662,
                 lng: 10.673362
-              },
+            },
             zoom: 13,
-            maxZoom: 13
         })
 
+        const bounds = new google.maps.LatLngBounds();
+
         if (points) {
-            for (let i = 0; i < points.length; i++) {
-                const point = points[i];
-                console.log(point);
+            for (let point of points) {
+                const {
+                    position,
+                    name
+                } = point;
+
                 const marker = new google.maps.Marker({
                     map: map,
-                    position: point.position,
-                    name: point.name,
-                    title: point.name,
+                    position: position,
+                    name: name,
+                    title: name,
                     animation: google.maps.Animation.DROP
                 })
+
+                markers.push(marker);
+
                 marker.addListener('click', (point, marker) => {
                     console.log(point, marker);
                     this.handleMarkerClick(point, marker);
                 })
+
+                bounds.extend(position);
             }
         }
 
-        const bounds = new google.maps.LatLngBounds();
-        for (let i = 0; i < points.length; i++) {
-            bounds.extend(points[i].position);
-        }
+        this.setState({
+            map: map,
+            markers: markers,
+            bounds: bounds
+        })
+    }
 
-        if (showingInfoWindow &&
-            activeMarker &&
-            selectedPoint) {
-                infoWindow = new google.maps.InfoWindow({
-                    content: selectedPoint.name 
-            })
+    componentDidUpdate = () => {
+        const {
+            markers,
+            bounds,
+            map
+        } = this.state;
+
+        const {
+            google,
+            points,
+            showingInfoWindow,
+            activeMarker,
+            selectedPoint,
+            addMarker
+        } = this.props;
+
+        for (let marker of markers) {
+            marker.setMap(null);
+        };
+
+        while (markers.length > 0) {
+            markers.pop();
+        };
+
+        if (points) {
+            for (let point of points) {
+                const {
+                    position,
+                    name
+                } = point;
+
+                const marker = new google.maps.Marker({
+                    map: this.state.map,
+                    position: position,
+                    name: name,
+                    title: name,
+                    animation: google.maps.Animation.DROP
+                })
+
+                markers.push(marker);
+
+                marker.addListener('click', (point, marker) => {
+                    console.log(point, marker);
+                    this.handleMarkerClick(point, marker);
+                })
+
+                bounds.extend(position);
+            }
         }
+        map.fitBounds(bounds);
     }
 
     render() {
@@ -66,12 +124,12 @@ export class CustomMap extends Component {
         };
 
         return (
-            <div 
-                ref="map" 
-                className="google-map" 
+            <div
+                ref="map"
+                className="google-map"
                 style={style}
-                onClick = { this.handleMapClick } >
-                    Loading map...
+                onClick={this.handleMapClick} >
+                Loading map...
             </div>
         )
     }
