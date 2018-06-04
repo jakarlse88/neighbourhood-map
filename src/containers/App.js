@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MenuContainer from './MenuContainer';
 import Header from '../components/Header';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -11,7 +10,6 @@ class App extends Component {
 	render() {
 		const {
 			points,
-			menu,
 			actions,
 			map
 		} = this.props;
@@ -19,17 +17,10 @@ class App extends Component {
 		return (
 			<div className="container">
 				<Header
-					hideMenu={actions.hideMenu}
-					showMenu={actions.showMenu}
-					isMenuShowing={menu.showMenu} />
-				{menu.showMenu && (
-					<MenuContainer
-						filter={map.filter}
-						onItemClick={actions.onMarkerClick}
-						points={points}
-						showMenu={menu.showMenu}
-						updateFilter={actions.updateFilter} />
-				)}
+					filter={map.filter}
+					onItemClick={actions.onMarkerClick}
+					points={points}
+					updateFilter={actions.updateFilter} />
 				<CustomMapContainer
 					markers={map.markers}
 					clearMarkers={actions.clearMarkers}
@@ -49,8 +40,7 @@ class App extends Component {
 const mapStateToProps = state => {
 	return {
 		points: state.points,
-		map: state.map,
-		menu: state.menu
+		map: state.map
 	};
 }
 

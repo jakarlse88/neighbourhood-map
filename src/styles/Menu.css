@@ -6,6 +6,7 @@
     background-color: black;
     position: fixed;
     left: 0;
+    top: 3em;
     z-index: 10;
 }
 

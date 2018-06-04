@@ -1,31 +1,52 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import '../styles/Header.css';
 import FontAwesome from 'react-fontawesome';
+import MenuContainer from '../containers/MenuContainer';
 
 export default class Header extends Component {
-    
+    state = {
+        showMenu: true
+    };
+
     handleClick = props => {
-        if (this.props.isMenuShowing) {
-            this.props.hideMenu();
-        } else {
-            this.props.showMenu();
-        }
-        
-    }
-    
+        let shouldMenuShow = this.state.showMenu ? false : true;
+
+        this.setState({
+            showMenu: shouldMenuShow
+        });
+    };
+
     render() {
+        const {
+            filter,
+            onMarkerClick,
+            points,
+            updateFilter
+        } = this.props;
+
+        const { showMenu } = this.state;
+
         return (
-            <header className = "site-header">
-                <div 
-                    type = "button"
-                    onClick = { this.handleClick }>
-                    <FontAwesome 
-                        name = "bars" 
-                        size = "2x" 
-                        className = "menu-icon" />
-                </div>
-                <h1>Neighbourhood Map</h1>
-            </header>
+            <Fragment>
+                <header className="site-header">
+                    <div
+                        type="button"
+                        onClick={this.handleClick}>
+                        <FontAwesome
+                            name="bars"
+                            size="2x"
+                            className="menu-icon" />
+                    </div>
+                    <h1>Neighbourhood Map</h1>
+                </header>
+                {showMenu && (
+                    <MenuContainer
+                        showMenu={showMenu}
+                        filter={filter}
+                        onItemClick={onMarkerClick}
+                        points={points}
+                        updateFilter={updateFilter} />)}
+            </Fragment>
         )
     }
 }

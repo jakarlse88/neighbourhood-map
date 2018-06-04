@@ -18,7 +18,7 @@ export default class MenuContainer extends Component {
             updateQuery,
             points,
             onItemClick,
-            showMenu,
+            showMenu
         } = this.props;
 
         if (showMenu) {
