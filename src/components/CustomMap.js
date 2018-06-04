@@ -81,6 +81,8 @@ export class CustomMap extends Component {
             addMarker
         } = this.props;
 
+        let infoWindow;
+
         for (let marker of markers) {
             marker.setMap(null);
         };
@@ -106,7 +108,7 @@ export class CustomMap extends Component {
 
                 markers.push(marker);
 
-                marker.addListener('click', (point, marker) => {
+                marker.addListener('click', (point, marker, e) => {
                     console.log(point, marker);
                     this.handleMarkerClick(point, marker);
                 })
@@ -115,6 +117,13 @@ export class CustomMap extends Component {
             }
         }
         map.fitBounds(bounds);
+
+        if (showingInfoWindow) {
+            const windowPosition = activeMarker.position;
+            infoWindow = new google.maps.InfoWindow({
+                position: windowPosition
+            })
+        }
     }
 
     render() {
@@ -124,13 +133,13 @@ export class CustomMap extends Component {
         };
 
         return (
-            <div
+            <section
                 ref="map"
                 className="google-map"
                 style={style}
                 onClick={this.handleMapClick} >
                 Loading map...
-            </div>
+            </section>
         )
     }
 }
