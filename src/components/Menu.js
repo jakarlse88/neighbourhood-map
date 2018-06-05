@@ -21,13 +21,12 @@ export default class Menu extends Component {
                     onChange={e => handleChange(e)}
                 />
                 <ul>
-                    {points.showingPoints &&
-                        points.showingPoints.map(obj => (
+                    {points &&
+                        points.map(obj => (
                             <li
                                 onClick={() =>
                                     this.onClick(obj.name, obj.location)}
-                                key={obj.name}
-                            >
+                                key={obj.name}>
                                 {obj.name}
                             </li>
                         ))}

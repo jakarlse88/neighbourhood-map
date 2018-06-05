@@ -9,7 +9,6 @@ class App extends Component {
 
 	render() {
 		const {
-			points,
 			actions,
 			map
 		} = this.props;
@@ -19,7 +18,8 @@ class App extends Component {
 				<Header
 					filter={map.filter}
 					onItemClick={actions.onMarkerClick}
-					points={points}
+					showingPoints={map.showingPoints}
+					allPoints={map.allPoints}
 					updateFilter={actions.updateFilter} />
 				<CustomMapContainer
 					markers={map.markers}
@@ -27,7 +27,7 @@ class App extends Component {
 					addMarker={actions.addMarker}
 					onMarkerClick={actions.onMarkerClick}
 					onMapClick={actions.onMapClick}
-					points={points.showingPoints}
+					points={map.showingPoints}
 					activeMarker={map.activeMarker}
 					showingInfoWindow={map.showingInfoWindow}
 					selectedPoint={map.selectedPoint}

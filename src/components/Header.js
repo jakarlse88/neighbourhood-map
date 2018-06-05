@@ -20,11 +20,14 @@ export default class Header extends Component {
         const {
             filter,
             onMarkerClick,
-            points,
+            allPoints,
+            showingPoints,
             updateFilter
         } = this.props;
 
-        const { showMenu } = this.state;
+        const { 
+            showMenu 
+        } = this.state;
 
         return (
             <Fragment>
@@ -44,7 +47,8 @@ export default class Header extends Component {
                         showMenu={showMenu}
                         filter={filter}
                         onItemClick={onMarkerClick}
-                        points={points}
+                        allPoints={allPoints}
+                        showingPoints={showingPoints}
                         updateFilter={updateFilter} />)}
             </Fragment>
         )

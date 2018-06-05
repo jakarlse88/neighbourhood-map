@@ -5,18 +5,17 @@ export default class MenuContainer extends Component {
     
     handleChange = e => {
 		const {
-            filter,
-			points,
+            allPoints,
             updateFilter
         } = this.props;
 
-        updateFilter(e.target.value, points.all);
+        updateFilter(e.target.value, allPoints);
     }
     
     render() {
         const {
             updateQuery,
-            points,
+            showingPoints,
             onItemClick,
             showMenu
         } = this.props;
@@ -26,7 +25,7 @@ export default class MenuContainer extends Component {
                 <Menu
                     handleChange={this.handleChange}
                     updateQuery={updateQuery}
-                    points={points}
+                    points={showingPoints}
                     onItemClick={onItemClick}
                     filterPoints={this.filterPoints}
                 />

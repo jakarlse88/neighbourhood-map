@@ -2,7 +2,6 @@ export const UPDATE_FILTER = 'UPDATE_FILTER';
 export const MAP_CLICK = 'MAP_CLICK';
 export const MARKER_CLICK = 'MARKER_CLICK';
 export const ADD_MARKER = 'ADD_MARKER';
-export const FILTER_POINTS = 'FILTER_POINTS';
 export const CLEAR_MARKERS = 'CLEAR_MARKERS';
 
 export const updateFilter = (filter = null, points) => {
