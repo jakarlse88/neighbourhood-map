@@ -17,7 +17,7 @@ export class CustomMap extends Component {
             showingInfoWindow,
             activeMarker,
             selectedPoint,
-            addMarker
+            addMarkers
         } = this.props;
 
         let markers = [];
@@ -49,25 +49,20 @@ export class CustomMap extends Component {
 
                 markers.push(marker);
 
-                marker.addListener('click', (point, marker) => {
-                    console.log(point, marker);
-                    this.handleMarkerClick(point, marker);
-                })
-
                 bounds.extend(position);
             }
         }
 
+        addMarkers(markers);
+
         this.setState({
             map: map,
-            markers: markers,
             bounds: bounds
         })
     }
 
     componentDidUpdate = () => {
         const {
-            markers,
             bounds,
             map
         } = this.state;
@@ -78,10 +73,11 @@ export class CustomMap extends Component {
             showingInfoWindow,
             activeMarker,
             selectedPoint,
-            addMarker
+            addMarker,
+            markers
         } = this.props;
 
-        let infoWindow;
+        let infoWindow = new google.maps.InfoWindow();
 
         for (let marker of markers) {
             marker.setMap(null);
@@ -108,14 +104,14 @@ export class CustomMap extends Component {
 
                 markers.push(marker);
 
-                marker.addListener('click', (point, marker, e) => {
-                    console.log(point, marker);
-                    this.handleMarkerClick(point, marker);
+                marker.addListener('click', () => {
+                    this.populateInfoWindow(infoWindow, map, marker);
                 })
 
                 bounds.extend(position);
             }
-        }
+        };
+
         map.fitBounds(bounds);
 
         if (showingInfoWindow) {
@@ -123,6 +119,17 @@ export class CustomMap extends Component {
             infoWindow = new google.maps.InfoWindow({
                 position: windowPosition
             })
+        };
+    };
+
+    populateInfoWindow = (infoWindow, map, marker) => {
+        if (infoWindow.marker !== marker) {
+            infoWindow.marker = marker;
+            infoWindow.setContent(`<h2>${marker.title}</h2>`);
+            infoWindow.open(map, marker);
+
+            infoWindow.addListener('closeclick', () => 
+                infoWindow.marker = null);
         }
     }
 

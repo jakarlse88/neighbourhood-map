@@ -24,13 +24,14 @@ class App extends Component {
 				<CustomMapContainer
 					markers={map.markers}
 					clearMarkers={actions.clearMarkers}
-					addMarker={actions.addMarker}
+					addMarkers={actions.addMarkers}
 					onMarkerClick={actions.onMarkerClick}
 					onMapClick={actions.onMapClick}
 					points={map.showingPoints}
 					activeMarker={map.activeMarker}
 					showingInfoWindow={map.showingInfoWindow}
 					selectedPoint={map.selectedPoint}
+					addMarker={actions.addMarker}
 				/>
 			</div>
 		);

@@ -1,7 +1,7 @@
 export const UPDATE_FILTER = 'UPDATE_FILTER';
 export const MAP_CLICK = 'MAP_CLICK';
 export const MARKER_CLICK = 'MARKER_CLICK';
-export const ADD_MARKER = 'ADD_MARKER';
+export const ADD_MARKERS = 'ADD_MARKERS';
 export const CLEAR_MARKERS = 'CLEAR_MARKERS';
 
 export const updateFilter = (filter = null, points) => {
@@ -35,11 +35,11 @@ export const onMarkerClick = (point, marker) => {
     }
 }
 
-export const addMarker = marker => {
+export const addMarkers = markers => {
     return {
-        type: ADD_MARKER,
+        type: ADD_MARKERS,
         payload: {
-            marker: marker
+            markers: markers
         }
     }
 }

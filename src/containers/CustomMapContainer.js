@@ -19,9 +19,9 @@ class CustomMapContainer extends Component {
             loaded,
             onMarkerClick,
             onMapClick,
-            addMarker,
+            addMarkers,
             clearMarkers,
-            markers
+            markers,
         } = this.props;
 
         if (!loaded) {
@@ -33,7 +33,7 @@ class CustomMapContainer extends Component {
                 <CustomMap
                     markers={markers}
                     clearMarkers={clearMarkers}
-                    addMarker={addMarker}
+                    addMarkers={addMarkers}
                     google={google}
                     points={points}
                     showingInfoWindow={showingInfoWindow}
