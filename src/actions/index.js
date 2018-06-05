@@ -3,6 +3,8 @@ export const MAP_CLICK = 'MAP_CLICK';
 export const MARKER_CLICK = 'MARKER_CLICK';
 export const ADD_MARKERS = 'ADD_MARKERS';
 export const CLEAR_MARKERS = 'CLEAR_MARKERS';
+export const SET_INFOWINDOW = 'SET_INFOWINDOW';
+export const TOGGLE_MENU = 'TOGGLE_MENU';
 
 export const updateFilter = (filter = null, points) => {
     return {
@@ -50,5 +52,20 @@ export const clearMarkers = () => {
         payload: {
             markers: []
         }
+    }
+}
+
+export const setInfoWindow = infoWindow => {
+    return {
+        type: SET_INFOWINDOW,
+        payload: {
+            infoWindow: infoWindow
+        }
+    }
+}
+
+export const toggleMenu = showMenu => {
+    return {
+        type: TOGGLE_MENU
     }
 }

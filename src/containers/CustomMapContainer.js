@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { GoogleApiWrapper } from 'google-maps-react';
 import { CustomMap } from '../components/CustomMap';
+import MenuContainer from '../containers/MenuContainer';
 
 class CustomMapContainer extends Component {
 
@@ -22,6 +23,14 @@ class CustomMapContainer extends Component {
             addMarkers,
             clearMarkers,
             markers,
+            updateGoogleInstance,
+            updateQuery,
+            showingPoints,
+            onItemClick,
+            showMenu,
+            filter,
+            allPoints,
+            updateFilter
         } = this.props;
 
         if (!loaded) {
@@ -29,6 +38,7 @@ class CustomMapContainer extends Component {
         }
 
         return (
+            <Fragment>
             <div className="map-container" style={style} >
                 <CustomMap
                     markers={markers}
@@ -42,6 +52,15 @@ class CustomMapContainer extends Component {
                     onMarkerClick={onMarkerClick}
                     onMapClick={onMapClick} />
             </div>
+            {showMenu && (
+                <MenuContainer
+                    showMenu={showMenu}
+                    filter={filter}
+                    onItemClick={onMarkerClick}
+                    allPoints={allPoints}
+                    showingPoints={showingPoints}
+                    updateFilter={updateFilter} />)}
+            </Fragment>
         )
     }
 }

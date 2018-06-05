@@ -64,7 +64,9 @@ const initialState = {
     selectedPoint: {},
     activeMarker: {},
     showingInfoWindow: false,
-    markers: []
+    markers: [],
+    infoWindow: {},
+    showMenu: true
 }
 
 export const mapReducer = (state = initialState, action) => {
@@ -94,6 +96,20 @@ export const mapReducer = (state = initialState, action) => {
             };
         case Actions.UPDATE_FILTER:
             return updateFilter(action, state);
+        case Actions.SET_INFOWINDOW: 
+            return {
+                ...state,
+                infoWindow: action.payload.infoWindow
+            };
+        case Actions.TOGGLE_MENU:
+            const { 
+                showMenu 
+            } = state;
+        
+            return {
+                ...state,
+                showMenu: showMenu ? false : true
+            };
         default:
             return state;
     }
@@ -102,7 +118,6 @@ export const mapReducer = (state = initialState, action) => {
 const updateFilter = (action, state) => {
     const { filter, points } = action.payload;
     const match = new RegExp(escapeRegExp(filter), 'i');
-    let showingPoints;
     return {
         ...state,
         filter: filter,

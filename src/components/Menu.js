@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import '../styles/Menu.css';
-import { InfoWindow } from 'google-maps-react';
-import { filterPoints } from '../actions';
 
 export default class Menu extends Component {
+
     render() {
         const {
-            updateQuery,
             points,
-            filterPoints,
-            handleChange
+            handleChange,
+            google
         } = this.props;
 
         return (

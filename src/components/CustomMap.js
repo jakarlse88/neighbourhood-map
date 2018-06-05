@@ -1,22 +1,12 @@
 import React, { Component } from 'react';
-import CustomMarker from './CustomMarker';
+import { updateGoogleInstance } from '../actions';
 
 export class CustomMap extends Component {
-    handleMapClick = e => {
-        // this.props.onMapClick(props);
-    }
-
-    handleMarkerClick = (point, marker) => {
-        this.props.onMarkerClick(point, marker);
-    }
 
     componentDidMount = () => {
         const {
             google,
             points,
-            showingInfoWindow,
-            activeMarker,
-            selectedPoint,
             addMarkers
         } = this.props;
 
@@ -26,8 +16,7 @@ export class CustomMap extends Component {
             center: {
                 lat: 59.420662,
                 lng: 10.673362
-            },
-            zoom: 13,
+            }
         })
 
         const bounds = new google.maps.LatLngBounds();
@@ -72,8 +61,6 @@ export class CustomMap extends Component {
             points,
             showingInfoWindow,
             activeMarker,
-            selectedPoint,
-            addMarker,
             markers
         } = this.props;
 
@@ -127,6 +114,8 @@ export class CustomMap extends Component {
             infoWindow.marker = marker;
             infoWindow.setContent(`<h2>${marker.title}</h2>`);
             infoWindow.open(map, marker);
+
+            map.setCenter(marker.getPosition());
 
             infoWindow.addListener('closeclick', () => 
                 infoWindow.marker = null);

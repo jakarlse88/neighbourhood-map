@@ -16,12 +16,14 @@ class App extends Component {
 		return (
 			<div className="container">
 				<Header
+					showMenu={map.showMenu}
+					toggleMenu={actions.toggleMenu} />
+				<CustomMapContainer
 					filter={map.filter}
 					onItemClick={actions.onMarkerClick}
 					showingPoints={map.showingPoints}
 					allPoints={map.allPoints}
-					updateFilter={actions.updateFilter} />
-				<CustomMapContainer
+					updateFilter={actions.updateFilter}
 					markers={map.markers}
 					clearMarkers={actions.clearMarkers}
 					addMarkers={actions.addMarkers}
@@ -32,6 +34,7 @@ class App extends Component {
 					showingInfoWindow={map.showingInfoWindow}
 					selectedPoint={map.selectedPoint}
 					addMarker={actions.addMarker}
+					showMenu={map.showMenu}
 				/>
 			</div>
 		);
