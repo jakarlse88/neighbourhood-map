@@ -3,11 +3,24 @@ import '../styles/Menu.css';
 
 export default class Menu extends Component {
 
+    componentDidUpdate = () => {
+        const {
+            google
+        } = this.props;
+
+        if (google) {
+            let infoWindow = new google.maps.InfoWindow();
+        }
+    }
+    
+    /*
+    * TODO: open infoWindow from list item
+    */
+
     render() {
         const {
             points,
             handleChange,
-            google
         } = this.props;
 
         return (

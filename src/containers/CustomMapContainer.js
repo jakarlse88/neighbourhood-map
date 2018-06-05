@@ -54,6 +54,7 @@ class CustomMapContainer extends Component {
             </div>
             {showMenu && (
                 <MenuContainer
+                    google={google}
                     showMenu={showMenu}
                     filter={filter}
                     onItemClick={onMarkerClick}

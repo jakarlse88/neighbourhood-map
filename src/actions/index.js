@@ -64,7 +64,7 @@ export const setInfoWindow = infoWindow => {
     }
 }
 
-export const toggleMenu = showMenu => {
+export const toggleMenu = () => {
     return {
         type: TOGGLE_MENU
     }
