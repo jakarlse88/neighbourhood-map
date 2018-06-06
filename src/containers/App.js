@@ -1,49 +1,30 @@
 import React, { Component } from 'react';
-import Header from '../components/Header';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
-import CustomMapContainer from './CustomMapContainer';
+
+import WrapperContainer from './WrapperContainer';
 
 class App extends Component {
 
 	render() {
 		const {
-			actions,
-			map
+			map,
+			actions
 		} = this.props;
 
 		return (
-			<div className="container">
-				<Header
-					showMenu={map.showMenu}
-					toggleMenu={actions.toggleMenu} />
-				<CustomMapContainer
-					filter={map.filter}
-					onItemClick={actions.onMarkerClick}
-					showingPoints={map.showingPoints}
-					allPoints={map.allPoints}
-					updateFilter={actions.updateFilter}
-					markers={map.markers}
-					clearMarkers={actions.clearMarkers}
-					addMarkers={actions.addMarkers}
-					onMarkerClick={actions.onMarkerClick}
-					onMapClick={actions.onMapClick}
-					points={map.showingPoints}
-					activeMarker={map.activeMarker}
-					showingInfoWindow={map.showingInfoWindow}
-					selectedPoint={map.selectedPoint}
-					addMarker={actions.addMarker}
-					showMenu={map.showMenu}
-				/>
-			</div>
-		);
+			<WrapperContainer 
+				map={map}
+				actions={actions} 
+			/>
+		)
 	}
 }
 
 const mapStateToProps = state => {
 	return {
-		points: state.points,
 		map: state.map
 	};
 }

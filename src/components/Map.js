@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { updateGoogleInstance } from '../actions';
 
-export class CustomMap extends Component {
+export class Map extends Component {
 
     componentDidMount = () => {
         const {

@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import { GoogleApiWrapper } from 'google-maps-react';
-import { CustomMap } from '../components/CustomMap';
-import MenuContainer from '../containers/MenuContainer';
+import { Map } from '../components/Map';
 
-class CustomMapContainer extends Component {
+export default class MapContainer extends Component {
 
     render() {
         const style = {
@@ -40,7 +38,7 @@ class CustomMapContainer extends Component {
         return (
             <Fragment>
             <div className="map-container" style={style} >
-                <CustomMap
+                <Map
                     markers={markers}
                     clearMarkers={clearMarkers}
                     addMarkers={addMarkers}
@@ -52,20 +50,8 @@ class CustomMapContainer extends Component {
                     onMarkerClick={onMarkerClick}
                     onMapClick={onMapClick} />
             </div>
-            {showMenu && (
-                <MenuContainer
-                    google={google}
-                    showMenu={showMenu}
-                    filter={filter}
-                    onItemClick={onMarkerClick}
-                    allPoints={allPoints}
-                    showingPoints={showingPoints}
-                    updateFilter={updateFilter} />)}
+            
             </Fragment>
         )
     }
 }
-
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyBQBmwAFnOLNr7Nz-bPMQBU-qUUn4xLfho'
-})(CustomMapContainer)
