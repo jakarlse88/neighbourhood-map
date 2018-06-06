@@ -17,12 +17,14 @@ export default class MenuContainer extends Component {
             updateQuery,
             showingPoints,
             onItemClick,
-            showMenu
+            showMenu,
+            google
         } = this.props;
 
         if (showMenu) {
             return (
                 <Menu
+                    google={google}
                     handleChange={this.handleChange}
                     updateQuery={updateQuery}
                     points={showingPoints}

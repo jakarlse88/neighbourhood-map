@@ -21,14 +21,6 @@ export default class MapContainer extends Component {
             addMarkers,
             clearMarkers,
             markers,
-            updateGoogleInstance,
-            updateQuery,
-            showingPoints,
-            onItemClick,
-            showMenu,
-            filter,
-            allPoints,
-            updateFilter
         } = this.props;
 
         if (!loaded) {

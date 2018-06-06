@@ -69,7 +69,7 @@ const initialState = {
     showMenu: true
 }
 
-export const mapReducer = (state = initialState, action) => {
+export const stateReducer = (state = initialState, action) => {
     switch (action.type) {
         case Actions.MAP_CLICK:
             return {

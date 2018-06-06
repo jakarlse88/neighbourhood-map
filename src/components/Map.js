@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { updateGoogleInstance } from '../actions';
 
 export class Map extends Component {
 

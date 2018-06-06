@@ -9,14 +9,6 @@ export default class Header extends Component {
     };
 
     render() {
-        const {
-            filter,
-            onMarkerClick,
-            allPoints,
-            showingPoints,
-            updateFilter
-        } = this.props;
-
         return (
             <header className="site-header">
                 <div

@@ -7,10 +7,6 @@ export default class Menu extends Component {
         const {
             google
         } = this.props;
-
-        if (google) {
-            let infoWindow = new google.maps.InfoWindow();
-        }
     }
     
     /*

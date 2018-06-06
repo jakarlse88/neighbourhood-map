@@ -7,9 +7,9 @@ import MenuContainer from '../containers/MenuContainer';
 class WrapperContainer extends Component {
     render() {
         const {
-            map,
+            state,
             actions
-        } = this.props; /* ¯\_(ツ)_/¯ */
+        } = this.props;
 
         const {
             google,
@@ -21,34 +21,34 @@ class WrapperContainer extends Component {
                 <Header
                     toggleMenu={actions.toggleMenu} 
                 />
-                {map.showMenu && (
+                {state.showMenu && (
                 <MenuContainer
                     google={google}
-                    showMenu={map.showMenu}
-                    filter={map.filter}
+                    showMenu={state.showMenu}
+                    filter={state.filter}
                     onItemClick={actions.onMarkerClick}
-                    allPoints={map.allPoints}
-                    showingPoints={map.showingPoints}
+                    allPoints={state.allPoints}
+                    showingPoints={state.showingPoints}
                     updateFilter={actions.updateFilter} />)}
                 <MapContainer
                     loaded={loaded}
                     google={google}
-                    filter={map.filter}
+                    filter={state.filter}
                     onItemClick={actions.onMarkerClick}
-                    showingPoints={map.showingPoints}
-                    allPoints={map.allPoints}
+                    showingPoints={state.showingPoints}
+                    allPoints={state.allPoints}
                     updateFilter={actions.updateFilter}
-                    markers={map.markers}
+                    markers={state.markers}
                     clearMarkers={actions.clearMarkers}
                     addMarkers={actions.addMarkers}
                     onMarkerClick={actions.onMarkerClick}
-                    onMapClick={actions.onMapClick}
-                    points={map.showingPoints}
-                    activeMarker={map.activeMarker}
-                    showingInfoWindow={map.showingInfoWindow}
-                    selectedPoint={map.selectedPoint}
+                    onMapClick={actions.onstateClick}
+                    points={state.showingPoints}
+                    activeMarker={state.activeMarker}
+                    showingInfoWindow={state.showingInfoWindow}
+                    selectedPoint={state.selectedPoint}
                     addMarker={actions.addMarker}
-                    showMenu={map.showMenu}
+                    showMenu={state.showMenu}
                 />
             </Fragment>
         )
