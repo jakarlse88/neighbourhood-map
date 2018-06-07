@@ -2,16 +2,12 @@ import React, { Component, Fragment } from 'react';
 import { GoogleApiWrapper } from 'google-maps-react';
 import Header from '../components/Header';
 import MapContainer from './MapContainer';
-import MenuContainer from '../containers/MenuContainer';
 
 class WrapperContainer extends Component {
     render() {
         const {
             state,
-            actions
-        } = this.props;
-
-        const {
+            actions,
             google,
             loaded
         } = this.props;
@@ -21,34 +17,23 @@ class WrapperContainer extends Component {
                 <Header
                     toggleMenu={actions.toggleMenu} 
                 />
-                {state.showMenu && (
-                <MenuContainer
-                    google={google}
-                    showMenu={state.showMenu}
-                    filter={state.filter}
-                    onItemClick={actions.onMarkerClick}
-                    allPoints={state.allPoints}
-                    showingPoints={state.showingPoints}
-                    updateFilter={actions.updateFilter} />)}
                 <MapContainer
-                    loaded={loaded}
-                    google={google}
-                    filter={state.filter}
-                    onItemClick={actions.onMarkerClick}
-                    showingPoints={state.showingPoints}
-                    allPoints={state.allPoints}
-                    updateFilter={actions.updateFilter}
-                    markers={state.markers}
-                    clearMarkers={actions.clearMarkers}
-                    addMarkers={actions.addMarkers}
-                    onMarkerClick={actions.onMarkerClick}
-                    onMapClick={actions.onstateClick}
-                    points={state.showingPoints}
                     activeMarker={state.activeMarker}
-                    showingInfoWindow={state.showingInfoWindow}
+                    addMarkers={actions.addMarkers}
+                    allPoints={state.allPoints}
+                    clearMarkers={actions.clearMarkers}
+                    filter={state.filter}
+                    google={google} // --------------------------
+                    loaded={loaded}
+                    markers={state.markers}
+                    onItemClick={actions.onMarkerClick}
+                    onMapClick={actions.onstateClick}
+                    onMarkerClick={actions.onMarkerClick}
                     selectedPoint={state.selectedPoint}
-                    addMarker={actions.addMarker}
+                    showingInfoWindow={state.showingInfoWindow}
+                    showingPoints={state.showingPoints}
                     showMenu={state.showMenu}
+                    updateFilter={actions.updateFilter}
                 />
             </Fragment>
         )

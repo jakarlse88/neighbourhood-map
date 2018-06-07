@@ -3,12 +3,6 @@ import '../styles/Menu.css';
 
 export default class Menu extends Component {
 
-    componentDidUpdate = () => {
-        const {
-            google
-        } = this.props;
-    }
-    
     /*
     * TODO: open infoWindow from list item
     */

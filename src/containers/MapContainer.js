@@ -10,17 +10,19 @@ export default class MapContainer extends Component {
         };
 
         const {
-            google,
-            points,
-            showingInfoWindow,
+            allPoints,
             activeMarker,
-            selectedPoint,
-            loaded,
-            onMarkerClick,
-            onMapClick,
             addMarkers,
             clearMarkers,
+            google,
+            loaded,
             markers,
+            onMapClick,
+            onMarkerClick,
+            selectedPoint,
+            showingInfoWindow,
+            showingPoints,
+            showMenu
         } = this.props;
 
         if (!loaded) {
@@ -31,16 +33,20 @@ export default class MapContainer extends Component {
             <Fragment>
             <div className="map-container" style={style} >
                 <Map
-                    markers={markers}
-                    clearMarkers={clearMarkers}
-                    addMarkers={addMarkers}
-                    google={google}
-                    points={points}
-                    showingInfoWindow={showingInfoWindow}
+                    allPoints={allPoints}
                     activeMarker={activeMarker}
-                    selectedPoint={selectedPoint}
+                    addMarkers={addMarkers}
+                    clearMarkers={clearMarkers}
+                    google={google}
+                    markers={markers}
+                    onMapClick={onMapClick} 
                     onMarkerClick={onMarkerClick}
-                    onMapClick={onMapClick} />
+                    showingPoints={showingPoints}
+                    selectedPoint={selectedPoint}
+                    showingInfoWindow={showingInfoWindow}
+                    showMenu={showMenu}
+                />
+                
             </div>
             
             </Fragment>

@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import MenuContainer from '../containers/MenuContainer';
 
 export class Map extends Component {
 
     componentDidMount = () => {
         const {
             google,
-            points,
+            showingPoints,
             addMarkers
         } = this.props;
 
@@ -20,8 +21,8 @@ export class Map extends Component {
 
         const bounds = new google.maps.LatLngBounds();
 
-        if (points) {
-            for (let point of points) {
+        if (showingPoints) {
+            for (let point of showingPoints) {
                 const {
                     position,
                     name
@@ -56,11 +57,11 @@ export class Map extends Component {
         } = this.state;
 
         const {
-            google,
-            points,
-            showingInfoWindow,
             activeMarker,
-            markers
+            google,
+            markers,
+            showingInfoWindow,
+            showingPoints
         } = this.props;
 
         let infoWindow = new google.maps.InfoWindow();
@@ -73,8 +74,8 @@ export class Map extends Component {
             markers.pop();
         };
 
-        if (points) {
-            for (let point of points) {
+        if (showingPoints) {
+            for (let point of showingPoints) {
                 const {
                     position,
                     name
@@ -127,14 +128,35 @@ export class Map extends Component {
             height: '100%'
         };
 
+        const {
+            allPoints,
+            showingPoints,
+            showMenu,
+            filter,
+            onItemClick,
+            updateFilter,
+            addMarkers
+        } = this.props;
+
         return (
-            <section
-                ref="map"
-                className="google-map"
-                style={style}
-                onClick={this.handleMapClick} >
-                Loading map...
-            </section>
+            <Fragment>
+                <section
+                    ref="map"
+                    className="google-map"
+                    style={style}
+                    onClick={this.handleMapClick} >
+                    Loading map...
+                </section>
+                <MenuContainer
+                    showMenu={showMenu}
+                    filter={filter}
+                    onItemClick={onItemClick}
+                    allPoints={allPoints}
+                    showingPoints={showingPoints}
+                    updateFilter={updateFilter}
+                    addMarkers={addMarkers}
+                />
+            </Fragment>
         )
     }
 }
