@@ -23,7 +23,6 @@ export default class MenuContainer extends Component {
     render() {
         const {
             google,
-            onListItemClick,
             showingPoints,
             showMenu,
             updateQuery

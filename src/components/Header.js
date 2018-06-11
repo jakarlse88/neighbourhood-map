@@ -4,8 +4,8 @@ import FontAwesome from 'react-fontawesome';
 
 export default class Header extends Component {
 
-    handleClick = () => {
-        this.props.toggleMenu();
+    handleClick = showMenu => {
+        this.props.toggleMenu(this.props.showMenu);
     };
 
     render() {

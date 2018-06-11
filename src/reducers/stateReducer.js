@@ -102,14 +102,7 @@ export const stateReducer = (state = initialState, action) => {
                 infoWindow: action.payload.infoWindow
             };
         case Actions.TOGGLE_MENU:
-            const { 
-                showMenu 
-            } = state;
-        
-            return {
-                ...state,
-                showMenu: showMenu ? false : true
-            };
+            return toggleMenu(state);
         default:
             return state;
     }
@@ -125,3 +118,12 @@ const updateFilter = (action, state) => {
             : points.filter(point => match.test(point.name)) 
     };
 }
+
+const toggleMenu = (state) => {
+    const { showMenu } = state;
+
+    return {
+        ...state,
+        showMenu: showMenu === true ? false : true
+    };
+};

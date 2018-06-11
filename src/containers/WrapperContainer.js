@@ -15,6 +15,7 @@ class WrapperContainer extends Component {
         return (
             <Fragment>
                 <Header
+                    showMenu={state.showMenu}
                     toggleMenu={actions.toggleMenu} 
                 />
                 <MapContainer
@@ -23,7 +24,7 @@ class WrapperContainer extends Component {
                     allPoints={state.allPoints}
                     clearMarkers={actions.clearMarkers}
                     filter={state.filter}
-                    google={google} // --------------------------
+                    google={google} 
                     loaded={loaded}
                     markers={state.markers}
                     onItemClick={actions.onMarkerClick}
