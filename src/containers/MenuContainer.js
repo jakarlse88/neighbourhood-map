@@ -11,25 +11,33 @@ export default class MenuContainer extends Component {
 
         updateFilter(e.target.value, allPoints);
     }
+
+    handleClick = pointName => {
+        const {
+            onListItemClick
+        } = this.props;
+
+        onListItemClick(pointName);
+    }
     
     render() {
         const {
-            updateQuery,
+            google,
+            onListItemClick,
             showingPoints,
-            onItemClick,
             showMenu,
-            google
+            updateQuery
         } = this.props;
 
         if (showMenu) {
             return (
                 <Menu
+                    filterPoints={this.filterPoints}
                     google={google}
                     handleChange={this.handleChange}
-                    updateQuery={updateQuery}
+                    handleClick={this.handleClick}
                     points={showingPoints}
-                    onItemClick={onItemClick}
-                    filterPoints={this.filterPoints}
+                    updateQuery={updateQuery}
                 />
             )
         } else {

@@ -93,7 +93,7 @@ export class Map extends Component {
 
                 marker.addListener('click', () => {
                     this.populateInfoWindow(infoWindow, map, marker);
-                })
+                });
 
                 bounds.extend(position);
             }
@@ -117,10 +117,20 @@ export class Map extends Component {
 
             map.setCenter(marker.getPosition());
 
-            infoWindow.addListener('closeclick', () => 
+            infoWindow.addListener('closeclick', () =>
                 infoWindow.marker = null);
         }
     }
+
+    onListItemClick = pointName => {
+        const { google, markers } = this.props;
+
+        for (let marker of markers) {
+            if (marker.name === pointName) {
+                google.maps.event.trigger(marker, 'click');
+            };
+        };
+    };
 
     render() {
         const style = {
@@ -150,7 +160,7 @@ export class Map extends Component {
                 <MenuContainer
                     showMenu={showMenu}
                     filter={filter}
-                    onItemClick={onItemClick}
+                    onListItemClick={this.onListItemClick}
                     allPoints={allPoints}
                     showingPoints={showingPoints}
                     updateFilter={updateFilter}

@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import '../styles/Menu.css';
 
 export default class Menu extends Component {
-
-    /*
-    * TODO: open infoWindow from list item
-    */
-
     render() {
         const {
-            points,
             handleChange,
+            handleClick,
+            points
         } = this.props;
 
         return (
@@ -26,7 +22,7 @@ export default class Menu extends Component {
                         points.map(obj => (
                             <li
                                 onClick={() =>
-                                    this.onClick(obj.name, obj.location)}
+                                    handleClick(obj.name)}
                                 key={obj.name}>
                                 {obj.name}
                             </li>
