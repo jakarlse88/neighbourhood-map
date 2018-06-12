@@ -139,7 +139,7 @@ export class Map extends Component {
         } else {
             marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
         }
-
+        
         setTimeout(() => marker.setAnimation(null), 3000);
     }
 
