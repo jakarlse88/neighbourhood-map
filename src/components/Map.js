@@ -93,6 +93,7 @@ export class Map extends Component {
 
                 marker.addListener('click', () => {
                     this.populateInfoWindow(infoWindow, map, marker);
+                    this.toggleBounce(marker);
                 });
 
                 bounds.extend(position);
@@ -132,6 +133,16 @@ export class Map extends Component {
         };
     };
 
+    toggleBounce = marker => {
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
+        }
+
+        setTimeout(() => marker.setAnimation(null), 3000);
+    }
+
     render() {
         const style = {
             width: '100%',
@@ -151,6 +162,7 @@ export class Map extends Component {
         return (
             <Fragment>
                 <section
+                    id="map"
                     ref="map"
                     className="google-map"
                     style={style}

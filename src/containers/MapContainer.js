@@ -30,8 +30,7 @@ export default class MapContainer extends Component {
         }
 
         return (
-            <Fragment>
-            <div className="map-container" style={style} >
+            <section className="map-container" style={style} >
                 <Map
                     allPoints={allPoints}
                     activeMarker={activeMarker}
@@ -46,10 +45,7 @@ export default class MapContainer extends Component {
                     showingInfoWindow={showingInfoWindow}
                     showMenu={showMenu}
                 />
-                
-            </div>
-            
-            </Fragment>
+            </section>
         )
     }
 }
