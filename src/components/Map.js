@@ -154,7 +154,6 @@ export class Map extends Component {
             showingPoints,
             showMenu,
             filter,
-            onItemClick,
             updateFilter,
             addMarkers
         } = this.props;

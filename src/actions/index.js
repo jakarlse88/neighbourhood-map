@@ -5,6 +5,7 @@ export const ADD_MARKERS = 'ADD_MARKERS';
 export const CLEAR_MARKERS = 'CLEAR_MARKERS';
 export const SET_INFOWINDOW = 'SET_INFOWINDOW';
 export const TOGGLE_MENU = 'TOGGLE_MENU';
+export const DATA_IS_FETCHING = 'DATA_IS_FETCHING';
 
 export const updateFilter = (filter = null, points) => {
     return {
