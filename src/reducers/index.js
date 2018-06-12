@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import { stateReducer } from './stateReducer';
+import { mapReducer } from './mapReducer';
+import { dataReducer } from './dataReducer';
 
 export const rootReducer = combineReducers({
-    state: stateReducer
+    data: dataReducer,
+    map: mapReducer
 });

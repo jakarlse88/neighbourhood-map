@@ -8,14 +8,16 @@ class App extends Component {
 
 	render() {
 		const {
-			state,
+			data,
+			map,
 			actions
 		} = this.props;
 
 		return (
 			<WrapperContainer 
-				state={state}
-				actions={actions} 
+				actions={actions}
+				data={data}
+				map={map} 
 			/>
 		)
 	}
@@ -23,7 +25,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
 	return {
-		state: state.state
+		data: state.data,
+		map: state.map
 	};
 }
 

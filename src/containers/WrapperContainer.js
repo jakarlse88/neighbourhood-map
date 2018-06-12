@@ -6,34 +6,35 @@ import MapContainer from './MapContainer';
 class WrapperContainer extends Component {
     render() {
         const {
-            state,
             actions,
+            data,
             google,
-            loaded
+            loaded,
+            map
         } = this.props;
 
         return (
             <Fragment>
                 <Header
-                    showMenu={state.showMenu}
-                    toggleMenu={actions.toggleMenu} 
+                    showMenu={map.showMenu}
+                    toggleMenu={actions.toggleMenu}
                 />
                 <MapContainer
-                    activeMarker={state.activeMarker}
+                    activeMarker={map.activeMarker}
                     addMarkers={actions.addMarkers}
-                    allPoints={state.allPoints}
+                    allPoints={map.allPoints}
                     clearMarkers={actions.clearMarkers}
-                    filter={state.filter}
-                    google={google} 
+                    filter={map.filter}
+                    google={google}
                     loaded={loaded}
-                    markers={state.markers}
+                    markers={map.markers}
                     onItemClick={actions.onMarkerClick}
                     onMapClick={actions.onstateClick}
                     onMarkerClick={actions.onMarkerClick}
-                    selectedPoint={state.selectedPoint}
-                    showingInfoWindow={state.showingInfoWindow}
-                    showingPoints={state.showingPoints}
-                    showMenu={state.showMenu}
+                    selectedPoint={map.selectedPoint}
+                    showingInfoWindow={map.showingInfoWindow}
+                    showingPoints={map.showingPoints}
+                    showMenu={map.showMenu}
                     updateFilter={actions.updateFilter}
                 />
             </Fragment>
