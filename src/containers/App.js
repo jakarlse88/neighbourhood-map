@@ -21,7 +21,8 @@ class App extends Component {
 			v: '20180612',
 			intent: 'browse',
 			radius: 1800,
-			ll: '37.517236,127.047325'
+			ll: '37.517236,127.047325',
+			query: 'ice cream'
 		};
 
 		actions.fetchData(venuesEndpoint + new URLSearchParams(params), { method: 'GET'});
