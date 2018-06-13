@@ -8,6 +8,7 @@ export const TOGGLE_MENU = 'TOGGLE_MENU';
 export const DATA_IS_FETCHING = 'DATA_IS_FETCHING';
 export const DATA_FETCH_DID_ERR = 'DATA_FETCH_DID_ERR';
 export const DATA_FETCH_SUCCESS = 'DATA_FETCH_SUCCESS';
+export const POPULATE_ALLPOINTS = 'POPULATE_ALLPOINTS';
 
 export const updateFilter = (filter = null, points) => {
     return {
@@ -90,6 +91,15 @@ export const dataFetchSuccess = data => {
     };
 };
 
+export const populateAllpoints = points => {
+    return {
+        type: POPULATE_ALLPOINTS,
+        payload: {
+            allPoints: points
+        }
+    };
+};
+
 /*
 * https://medium.com/@stowball/a-dummys-guide-to-redux-and-thunk-in-react-d8904a7005d3
 */
@@ -108,7 +118,7 @@ export const fetchData = url => {
             return response;
         })
         .then(response => response.json())
-        .then(data => dispatch(dataFetchSuccess(data)))
+        .then(data => dispatch(dataFetchSuccess(data), dispatch(populateAllpoints(data.response.venues))))
         .catch(() => dispatch(dataFetchDidErr(true)))
     };
 }

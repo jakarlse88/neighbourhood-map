@@ -9,8 +9,9 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		const { actions } = props;
+		const { actions } = props;
 
+		// http://www.stevebrown.co/journal/creating-a-local-venue-app-using-reactredux-with-the-foursquare-api-part-i
 		const venuesEndpoint = 'https://api.foursquare.com/v2/venues/search?';
 
 		const params = {

@@ -7,7 +7,6 @@ class WrapperContainer extends Component {
     render() {
         const {
             actions,
-            data,
             google,
             loaded,
             map

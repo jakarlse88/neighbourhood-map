@@ -24,13 +24,20 @@ export class Map extends Component {
         if (showingPoints) {
             for (let point of showingPoints) {
                 const {
-                    position,
+                    location,
                     name
                 } = point;
 
+                const consolidatedLocation = {
+                    lat: location.lat,
+                    lng: location.lng
+                };
+
+                console.log(consolidatedLocation);
+
                 const marker = new google.maps.Marker({
                     map: map,
-                    position: position,
+                    position: consolidatedLocation,
                     name: name,
                     title: name,
                     animation: google.maps.Animation.DROP
@@ -38,7 +45,7 @@ export class Map extends Component {
 
                 markers.push(marker);
 
-                bounds.extend(position);
+                bounds.extend(consolidatedLocation);
             }
         }
 
@@ -77,13 +84,18 @@ export class Map extends Component {
         if (showingPoints) {
             for (let point of showingPoints) {
                 const {
-                    position,
+                    location,
                     name
                 } = point;
 
+                const consolidatedLocation = {
+                    lat: location.lat,
+                    lng: location.lng
+                };
+
                 const marker = new google.maps.Marker({
                     map: this.state.map,
-                    position: position,
+                    position: consolidatedLocation,
                     name: name,
                     title: name,
                     animation: google.maps.Animation.DROP
@@ -96,7 +108,7 @@ export class Map extends Component {
                     this.toggleBounce(marker);
                 });
 
-                bounds.extend(position);
+                bounds.extend(consolidatedLocation);
             }
         };
 
