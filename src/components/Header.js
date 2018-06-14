@@ -20,7 +20,7 @@ export default class Header extends Component {
                         size="2x"
                         className="menu-icon" />
                 </div>
-                <h1>Tokyo Ice Cream Map</h1>
+                <h1>Tōkyō Ice Cream Map</h1>
             </header>
         )
     }
