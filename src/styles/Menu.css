@@ -6,6 +6,7 @@
     background-color: #f3ffbd;
     display: flex;
     flex-direction: column;
+    width: 25%;
     max-width: 25%;
     overflow: scroll;
 }
@@ -22,9 +23,15 @@
 
 .menu-drawer ul {
     list-style: none;
-    margin: 1em;
+    margin: 0 1em;
     padding: 0;
     text-align: left;
+}
+
+.foursquare-img {
+    margin: 0;
+    padding: 0;
+    max-width: 90%;
 }
 
 ul li {
@@ -33,6 +40,11 @@ ul li {
     font-size: 1.2em;
     font-weight: bold;
     padding: .4em 0;
+}
+
+ul li:before {
+    content: '> ';
+    font-size: 12px;
 }
 
 ul li:hover {

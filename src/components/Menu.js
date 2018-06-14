@@ -13,9 +13,14 @@ export default class Menu extends Component {
             <section className="menu-drawer">
                 <input
                     id="points-filter"
-                    type="text"
-                    placeholder="Filter your search"
                     onChange={e => handleChange(e)}
+                    placeholder="Filter your search"
+                    type="text"
+                />
+                <img 
+                    alt="Powered by Foursquare" 
+                    className="foursquare-img"
+                    src={require("../images/foursquare.png")} 
                 />
                 <ul>
                     {points &&

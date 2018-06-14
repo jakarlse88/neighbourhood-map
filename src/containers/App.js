@@ -17,11 +17,12 @@ class App extends Component {
 		const params = {
 			client_id: '3AHN3ZNXVZ3UDDKDUAEFCYMZ130RYHIYCURPW4SFHTGEG1GI',
 			client_secret: 'ZOTNAKII5XW1DY53ZJZWP4V5SBB11MCJF1GZECPDBKY05WQ3',
-			limit: 50,
+			limit: 25,
 			v: '20180612',
 			intent: 'browse',
 			radius: 8000,
-			ll: '37.517236,127.047325',
+			// ll: '37.517236,127.047325',
+			near: 'tokyo',
 			query: 'ice cream'
 		};
 
