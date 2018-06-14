@@ -23,7 +23,7 @@ export default class Menu extends Component {
                             <li
                                 onClick={() =>
                                     handleClick(obj.name)}
-                                key={obj.name}>
+                                key={obj.id}>
                                 {obj.name}
                             </li>
                         ))}

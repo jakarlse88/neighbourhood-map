@@ -12,6 +12,7 @@ export default class Header extends Component {
         return (
             <header className="site-header">
                 <div
+                    className="menu-icon-container"
                     type="button"
                     onClick={this.handleClick}>
                     <FontAwesome
@@ -19,7 +20,7 @@ export default class Header extends Component {
                         size="2x"
                         className="menu-icon" />
                 </div>
-                <h1>Neighbourhood Map</h1>
+                <h1>Seoul Ice Cream Map</h1>
             </header>
         )
     }

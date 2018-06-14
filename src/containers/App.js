@@ -20,7 +20,7 @@ class App extends Component {
 			limit: 50,
 			v: '20180612',
 			intent: 'browse',
-			radius: 1800,
+			radius: 8000,
 			ll: '37.517236,127.047325',
 			query: 'ice cream'
 		};

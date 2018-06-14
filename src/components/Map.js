@@ -1,55 +1,54 @@
 import React, { Component, Fragment } from 'react';
 import MenuContainer from '../containers/MenuContainer';
+import '../styles/Map.css';
 
 export class Map extends Component {
 
     componentDidMount = () => {
         const {
             google,
-            showingPoints,
-            addMarkers
+            // showingPoints,
+            // addMarkers
         } = this.props;
 
-        let markers = [];
+        // let markers = [];
 
         const map = new google.maps.Map(this.refs.map, {
             center: {
                 lat: 59.420662,
                 lng: 10.673362
             }
-        })
+        });
 
         const bounds = new google.maps.LatLngBounds();
 
-        if (showingPoints) {
-            for (let point of showingPoints) {
-                const {
-                    location,
-                    name
-                } = point;
+        // if (showingPoints) {
+        //     for (let point of showingPoints) {
+        //         const {
+        //             location,
+        //             name
+        //         } = point;
 
-                const consolidatedLocation = {
-                    lat: location.lat,
-                    lng: location.lng
-                };
+        //         const consolidatedLocation = {
+        //             lat: location.lat,
+        //             lng: location.lng
+        //         };
 
-                console.log(consolidatedLocation);
+        //         const marker = new google.maps.Marker({
+        //             map: map,
+        //             position: consolidatedLocation,
+        //             name: name,
+        //             title: name,
+        //             animation: google.maps.Animation.DROP
+        //         })
 
-                const marker = new google.maps.Marker({
-                    map: map,
-                    position: consolidatedLocation,
-                    name: name,
-                    title: name,
-                    animation: google.maps.Animation.DROP
-                })
+        //         markers.push(marker);
 
-                markers.push(marker);
+        //         bounds.extend(consolidatedLocation);
+        //     }
+        // }
 
-                bounds.extend(consolidatedLocation);
-            }
-        }
-
-        addMarkers(markers);
+        // addMarkers(markers);
 
         this.setState({
             map: map,
@@ -94,11 +93,11 @@ export class Map extends Component {
                 };
 
                 const marker = new google.maps.Marker({
+                    animation: google.maps.Animation.DROP,
                     map: this.state.map,
-                    position: consolidatedLocation,
                     name: name,
-                    title: name,
-                    animation: google.maps.Animation.DROP
+                    position: consolidatedLocation,
+                    title: name
                 })
 
                 markers.push(marker);
@@ -172,14 +171,6 @@ export class Map extends Component {
 
         return (
             <Fragment>
-                <section
-                    id="map"
-                    ref="map"
-                    className="google-map"
-                    style={style}
-                    onClick={this.handleMapClick} >
-                    Loading map...
-                </section>
                 <MenuContainer
                     showMenu={showMenu}
                     filter={filter}
@@ -189,6 +180,14 @@ export class Map extends Component {
                     updateFilter={updateFilter}
                     addMarkers={addMarkers}
                 />
+                <section
+                    id="map"
+                    ref="map"
+                    className="google-map"
+                    style={style}
+                    onClick={this.handleMapClick} >
+                    Loading map...
+                </section>
             </Fragment>
         )
     }
