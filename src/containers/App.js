@@ -21,7 +21,6 @@ class App extends Component {
 			v: '20180612',
 			intent: 'browse',
 			radius: 8000,
-			// ll: '37.517236,127.047325',
 			near: 'tokyo',
 			query: 'ice cream'
 		};
