@@ -20,24 +20,42 @@
 }
 
 .site-header h1 {
-    flex: 5;
-    margin: 0 0 0 -1em;
+    align-self: center;
     padding: 0;
-}
-
-.menu-icon-container {
-    flex: 0;
-    padding: 0 0 0 1em;
-    z-index: 4;
+    margin: auto;
 }
 
 .menu-icon {
+    align-self: center;
     cursor: pointer;
     height: 42px;
-    padding: 0;
+    margin: auto 0;
+    padding: 0 0 0 1em;
     width: 42px;
 }
 
 .menu-icon:hover {
     color: #247ba0;
+}
+
+@media screen and (max-width: 550px) {
+    .site-header h1 {
+        font-size: 1.4em;
+    }
+
+    .menu-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .site-header h1 {
+        font-size: 1em;
+    }
+
+    .menu-icon {
+        font-size: 1em;
+        margin: .6em 0 0;
+    }
 }

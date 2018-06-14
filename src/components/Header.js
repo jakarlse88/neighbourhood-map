@@ -12,7 +12,6 @@ export default class Header extends Component {
         return (
             <header className="site-header">
                 <div
-                    className="menu-icon-container"
                     type="button"
                     onClick={this.handleClick}>
                     <FontAwesome
