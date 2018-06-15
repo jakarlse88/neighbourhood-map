@@ -357,17 +357,19 @@ export class Map extends Component {
         };
 
         const {
+            addMarkers,
             allPoints,
+            data,
+            filter,
             showingPoints,
             showMenu,
-            filter,
-            updateFilter,
-            addMarkers
+            updateFilter
         } = this.props;
 
         return (
             <Fragment>
                 <MenuContainer
+                    data={data}
                     showMenu={showMenu}
                     filter={filter}
                     onListItemClick={this.onListItemClick}

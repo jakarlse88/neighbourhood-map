@@ -4,6 +4,7 @@ import '../styles/Menu.css';
 export default class Menu extends Component {
     render() {
         const {
+            data,
             handleChange,
             handleClick,
             points
@@ -17,10 +18,10 @@ export default class Menu extends Component {
                     placeholder="Filter your search"
                     type="text"
                 />
-                <img 
-                    alt="Powered by Foursquare" 
+                <img
+                    alt="Powered by Foursquare"
                     className="foursquare-img"
-                    src={require("../images/foursquare.png")} 
+                    src={require("../images/foursquare.png")}
                 />
                 <ul>
                     {points &&
@@ -29,10 +30,17 @@ export default class Menu extends Component {
                                 <button
                                     onClick={() =>
                                         handleClick(obj.name)}>
-                                        {obj.name}
+                                    {obj.name}
                                 </button>
                             </li>
-                        ))}
+                        ))
+                    }
+                    {data.didErr &&
+                        <p className="list-error-text">
+                            There was an error loading the data. Try reloading the page,
+                            or contact the site owner for help. We're sorry for the inconvenience.
+                        </p>
+                    }
                 </ul>
             </section>
         )

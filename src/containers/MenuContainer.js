@@ -22,6 +22,7 @@ export default class MenuContainer extends Component {
     
     render() {
         const {
+            data,
             google,
             showingPoints,
             showMenu,
@@ -31,6 +32,7 @@ export default class MenuContainer extends Component {
         if (showMenu) {
             return (
                 <Menu
+                    data={data}
                     filterPoints={this.filterPoints}
                     google={google}
                     handleChange={this.handleChange}

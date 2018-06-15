@@ -9,7 +9,8 @@ class WrapperContainer extends Component {
             actions,
             google,
             loaded,
-            map
+            map,
+            data
         } = this.props;
 
         return (
@@ -19,6 +20,7 @@ class WrapperContainer extends Component {
                     toggleMenu={actions.toggleMenu}
                 />
                 <MapContainer
+                    data={data}
                     activeMarker={map.activeMarker}
                     addMarkers={actions.addMarkers}
                     allPoints={map.allPoints}

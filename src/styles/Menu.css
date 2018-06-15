@@ -66,3 +66,10 @@ ul li button {
   @media screen and (max-width: 490px) {
     ul li button {
       font-size: .8em; } }
+
+.list-error-text {
+  color: #ff4073;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: .4em 0; }

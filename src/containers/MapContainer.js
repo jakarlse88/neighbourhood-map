@@ -14,6 +14,7 @@ export default class MapContainer extends Component {
             addMarkers,
             allPoints,
             clearMarkers,
+            data,
             google,
             loaded,
             markers,
@@ -33,6 +34,7 @@ export default class MapContainer extends Component {
         return (
             <section className="map-container" style={style} >
                 <Map
+                    data={data}
                     activeMarker={activeMarker}
                     addMarkers={addMarkers}
                     allPoints={allPoints}
