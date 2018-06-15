@@ -26,12 +26,12 @@ export default class Menu extends Component {
                     {points &&
                         points.map(obj => (
                             <li>
-                                <a href="#"
+                                <button
                                     onClick={() =>
                                         handleClick(obj.name)}
                                     key={obj.id}>
                                         {obj.name}
-                                </a>
+                                </button>
                             </li>
                         ))}
                 </ul>
