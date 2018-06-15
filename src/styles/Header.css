@@ -25,12 +25,22 @@
     margin: auto;
 }
 
-.menu-icon {
-    align-self: center;
+.menu-toggle-btn {
+    background-color: transparent;
+    border: none; 
     cursor: pointer;
+    color: #ff4073;
+    margin: 0 0 0 1em;
+}
+
+.menu-toggle-btn:hover {
+    color: #247ba0;
+}
+
+.menu-icon {
     height: 42px;
-    margin: auto 0;
-    padding: 0 0 0 1em;
+    margin: 0;
+    padding: 0;
     width: 42px;
 }
 

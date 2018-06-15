@@ -11,14 +11,15 @@ export default class Header extends Component {
     render() {
         return (
             <header className="site-header">
-                <div
-                    type="button"
+                <button
+                    // type="button"
+                    className="menu-toggle-btn"
                     onClick={this.handleClick}>
                     <FontAwesome
                         name="bars"
                         size="2x"
                         className="menu-icon" />
-                </div>
+                </button>
                 <h1>Tōkyō Ice Cream Map</h1>
             </header>
         )
