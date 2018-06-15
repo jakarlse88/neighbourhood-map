@@ -1,0 +1,79 @@
+/* Color ref
+*  https://coolors.co/247ba0-70c1b3-b2dbbf-f3ffbd-ff1654
+*/
+
+.menu-drawer {
+    /* http://www.heropatterns.com/ */
+    background-color: #f3ffbd;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ff4073' fill-opacity='0.07'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    width: 25%;
+
+    @media screen and (max-width: 800px) {
+        width: 35vw;
+    }
+}
+
+#points-filter {
+    border-radius: 5px;
+    border: none;
+    color: #247ba0;
+    margin: 1em auto 0;
+    padding: .5em;
+    width: 90%;
+    font-family: 'Shadows Into Light Two', cursive;
+
+    @media screen and (max-width: 550px) {
+        width: 75%;
+    }
+
+    @media screen and (max-width: 370px) {
+        width: 60%;
+    }
+}
+
+.menu-drawer ul {
+    list-style: none;
+    margin: 0 1em;
+    padding: 0;
+    text-align: left;
+}
+
+.foursquare-img {
+    margin: 0;
+    max-width: 90%;
+    padding: 0;
+}
+
+ul li a {
+    color: #ff4073;
+    font-family: 'Caveat Brush', cursive;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: .4em 0;
+    text-decoration: none;
+
+    &:before {
+        content: '> ';
+        font-size: 12px;
+    }
+
+    &:hover, &:focus {
+        color: #247ba0; 
+        cursor: pointer;
+        outline: none;
+        text-decoration: underline;
+    }
+
+    @media screen and (max-width: 580px) {
+        font-size: .9em;
+        overflow-x: hidden;
+        overflow-wrap: break-word;
+    }
+
+    @media screen and (max-width: 490px) {
+        font-size: .8em;
+    }
+}
