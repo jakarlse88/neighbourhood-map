@@ -20,8 +20,9 @@
   margin: 1em auto 0;
   padding: .5em;
   width: 90%;
-  font-family: 'Shadows Into Light Two', cursive; }
-  @media screen and (max-width: 550px) {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 1.4em; }
+  @media screen and (max-width: 1180px) {
     #points-filter {
       width: 75%; } }
   @media screen and (max-width: 370px) {
