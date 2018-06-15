@@ -4,8 +4,19 @@
   max-height: 90vh; }
 
 .address {
-  font-weight: bold;
-  font-size: 16px; }
+  font-weight: bold; }
 
 .content {
   font-size: 16px; }
+
+.gm-style-iw h2 {
+  color: #ff4073;
+  font-family: 'Gloria Hallelujah', cursive; }
+
+.gm-style-iw p {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 18px; }
+
+.gm-style-iw a {
+  font-size: 16px;
+  color: #247ba0; }
