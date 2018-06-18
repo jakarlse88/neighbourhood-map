@@ -12,13 +12,13 @@ Built using the Create-React-App for the final project of Udacity's Front-End We
 **Dev mode, no Service Worker/caching**
 
 * Download or clone this repo
-* Navigate to the repo's local directory and `npm start` 
+* Navigate to the repo's local directory and `npm install`, then `npm start` 
 * In your favourite browswer, navigate to `http://localhost:3000`
 
 **Production mode, with Service Worker/caching** 
 
 * Download or clone this repo
-* Navigate to this repo's local directory and `npm run build`
+* Navigate to this repo's local directory and `npm install`, then `npm run build`
 * Install [serve](https://github.com/zeit/serve): `npm install -g serve`
 * Serve the build dir: `serve -s build`
 * In your favourite browser, navigate to `http://localhost:5000`
