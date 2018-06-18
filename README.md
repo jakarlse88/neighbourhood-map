@@ -9,7 +9,7 @@ Built using the Create-React-App for the final project of Udacity's Front-End We
 **Dependencies:**
 * [Node.js](https://nodejs.org/en/)
 
-**Dev mode,no Service Worker/caching**
+**Dev mode, no Service Worker/caching**
 
 * Download or clone this repo
 * Navigate to the repo's local directory and `npm start` 
@@ -19,6 +19,6 @@ Built using the Create-React-App for the final project of Udacity's Front-End We
 
 * Download or clone this repo
 * Navigate to this repo's local directory and `npm run build`
-* `npm install -g serve`
-* `serve -s`
+* Install [serve](https://github.com/zeit/serve): `npm install -g serve`
+* Serve the build dir: `serve -s build`
 * In your favourite browser, navigate to `http://localhost:5000`
