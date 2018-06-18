@@ -12,8 +12,15 @@ const middleware = applyMiddleware(thunk);
 
 const store = createStore(
     rootReducer,
-    compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+    compose(middleware)
 );
+
+/* 
+ * window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+ * Moved here for reference, and so as to not break app on compile for reviewers 
+ * w/o Redux devtools installed
+ * https://github.com/reduxjs/redux/issues/2359
+ */
 
 render(
     <Provider store={store}>
