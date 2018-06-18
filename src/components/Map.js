@@ -7,11 +7,7 @@ export class Map extends Component {
     componentDidMount = () => {
         const {
             google,
-            // showingPoints,
-            // addMarkers
         } = this.props;
-
-        // let markers = [];
 
         const map = new google.maps.Map(this.refs.map, {
             center: {
@@ -192,34 +188,6 @@ export class Map extends Component {
         });
 
         const bounds = new google.maps.LatLngBounds();
-
-        // if (showingPoints) {
-        //     for (let point of showingPoints) {
-        //         const {
-        //             location,
-        //             name
-        //         } = point;
-
-        //         const consolidatedLocation = {
-        //             lat: location.lat,
-        //             lng: location.lng
-        //         };
-
-        //         const marker = new google.maps.Marker({
-        //             map: map,
-        //             position: consolidatedLocation,
-        //             name: name,
-        //             title: name,
-        //             animation: google.maps.Animation.DROP
-        //         })
-
-        //         markers.push(marker);
-
-        //         bounds.extend(consolidatedLocation);
-        //     }
-        // }
-
-        // addMarkers(markers);
 
         this.setState({
             map: map,

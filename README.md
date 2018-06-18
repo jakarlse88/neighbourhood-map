@@ -12,17 +12,13 @@ Built using the Create-React-App for the final project of Udacity's Front-End We
 **Dev mode,no Service Worker/caching**
 
 * Download or clone this repo
-* Navigate to the repo's local directory and run `npm start` 
-* Navigate to `http://localhost:3000` in your browser
+* Navigate to the repo's local directory and `npm start` 
+* In your favourite browswer, navigate to `http://localhost:3000`
 
 **Production mode, with Service Worker/caching** 
 
-* Run `npm build`
-* Spin up a web server
-  * Python 2.x: `python -m SimpleHTTPServer 8080`
-  * Python 3.x: `-m http.server 8080`
-  * Node serve:
-    * `npm install -g serve`
-    * `serve -s`
-
-Using either Python option, navigate to http://localhost:8000 in your browser. Using Node serve, the appropriate address is http://localhost:5000 
+* Download or clone this repo
+* Navigate to this repo's local directory and `npm run build`
+* `npm install -g serve`
+* `serve -s`
+* In your favourite browser, navigate to `http://localhost:5000`
