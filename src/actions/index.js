@@ -100,25 +100,22 @@ export const populateAllpoints = points => {
     };
 };
 
-/*
-* https://medium.com/@stowball/a-dummys-guide-to-redux-and-thunk-in-react-d8904a7005d3
-*/
 export const fetchData = url => {
-    return dispatch => {
-        dispatch(dataIsFetching(true));
+    return async dispatch => {
+    
+            dispatch(dataIsFetching(true));
 
-        fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw Error(response.statusText);
+            try {
+                const response = await fetch(url);
+
+                dispatch(dataIsFetching(false));
+
+                const data = await response.json();
+                dispatch(dataFetchSuccess(true));
+                dispatch(populateAllpoints(data.response.venues));
+            } catch (e) {
+                dispatch(dataFetchDidErr(true));
+                console.log(e);
             }
-
-            dispatch(dataIsFetching(false));
-
-            return response;
-        })
-        .then(response => response.json())
-        .then(data => dispatch(dataFetchSuccess(data), dispatch(populateAllpoints(data.response.venues))))
-        .catch(() => dispatch(dataFetchDidErr(true)))
     };
 }
